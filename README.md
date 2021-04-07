@@ -256,7 +256,7 @@ P_Value_Interaction - Interaction effect p-value.
 P_Value_Joint       - Joint test p-value (K+1 degrees of freedom test of genetic effect).
 ```
 
-meta: 
+meta:  
 In addition to the "minimum" output, the "meta" option will also output the following columns:
 ```diff 
 Beta_G           - The coefficient estimate for the genetic main effect.
@@ -266,7 +266,7 @@ Var_Beta_G-C     - The variance associated with any interaction covariate term.
 Cov_Beta_G-*_G-* - The set of covariance terms (genetic main effect, GxE, and any interaction covariate term) defining the full covariance matrix. 
 ```
 
-full:
+full:  
 The "full" option provides, in addition to "meta", output columns storing intermediate quantities necessary for re-analysis of a subset of interactions using only summary statistics (for example, switching an exposure and interaction covariate).
 
 <br />

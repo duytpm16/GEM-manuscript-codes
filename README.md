@@ -22,9 +22,9 @@ https://large-scale-gxe-methods.github.io/GEM-website/index.html
 
 ## Installation  
 Library Dependencies:  
-* BLAS/LAPACK. For Intel processors, we recommend that GEM is compiled with optimized math routine libraries such as the Math Kernal Library (or other fast BLAS/LAPACK libraries) for top performance. 
-* Boost C++ libraries. GEM links the following Boost libraries  ```boost_program_options boost_thread boost_system boost_filesystem```. 
-These dependencies will need to be installed prior to executing the makefile.  
+* BLAS/LAPACK. For Intel processors, we recommend that GEM is compiled with an optimized math routine library such as the Math Kernal Library for top performance.  
+* Boost C++ libraries. GEM links the following Boost libraries:  ```boost_program_options, boost_thread, boost_system, and boost_filesystem```.  
+These dependencies will need to be installed prior to executing make.  
 
 <br />
 
@@ -70,7 +70,7 @@ General Options:
   
   
   
-Input and Output File Options:  
+Input/Output File Options:  
 
 --pheno-file  
      Path to the phenotype file.  
@@ -209,18 +209,18 @@ Performance Options:
     All binary phenotypes, exposures, and covariates should be coded numerically (e.g., males/females as 0/1)
 
 * ##### Genotype Files
-    1. [BGEN genotype file format](https://www.well.ox.ac.uk/~gav/bgen_format/spec/latest.html).  
+    1. [BGEN genotype file](https://www.well.ox.ac.uk/~gav/bgen_format/spec/latest.html).  
     Variants that are non-biallelic should be filtered from the BGEN file. Note that since there are no indication of a REF/ALT allele in the BGEN file, the second allele is the effect allele counted in association testing.   
-    A [.sample file](https://www.well.ox.ac.uk/~gav/qctool_v2/documentation/sample_file_formats.html) is required when the .bgen file does not contain a sample identifier block.
+    A [.sample file](https://www.well.ox.ac.uk/~gav/qctool_v2/documentation/sample_file_formats.html) is required as input when the .bgen file does not contain a sample identifier block.
      
 
     2. Plink BED/PGEN genotype files.  
     <ins>BED</ins>  
     [**.fam**](https://www.cog-genomics.org/plink/2.0/formats#fam) - The .fam file can be space or tab-delimited and must contain at least 2 columns where the first column is the family ID (FID) and the second column is the individual ID (IID). GEM will use the IID column for sample identifier matching with the phenotype file.  
     [**.bim**](https://www.cog-genomics.org/plink/2.0/formats#bim) - The .bim file can also be space or tab-delimited and should be in the following order: the chromosome, variant id, cM (optional), base-pair coordinate, ALT allele, and REF allele.  
-    [**.bed**](https://www.cog-genomics.org/plink/2.0/formats#bed) - A bed file must be stored in variant-major form. The ALT allele specified in the .bim file is the effect allele counted in association testing.  
+    [**.bed**](https://www.cog-genomics.org/plink/2.0/formats#bed) - A bed file must be stored in variant-major form. The ALT allele specified in the .bim file is the effect allele counted in association testing.   
     <ins>PGEN</ins>  
-    [**.psam**](https://www.cog-genomics.org/plink/2.0/formats#psam) - The .psam file is a tab-delimited text file containing the sample information. If header lines are present, the last header line should contain a column with the name #IID (if the first column is not #FID) or IID (if the first column is #FID) that holds the individual ID for sample identifier matching with the phenotype file. All previous header lines will be ignored. If no header line beginning with #IID or #FID is present, then the columns are assumed to be in .fam file order.  
+    [**.psam**](https://www.cog-genomics.org/plink/2.0/formats#psam) - The .psam file is a tab-delimited text file containing the sample information. If header lines are present, the last header line should contain a column with the name #IID (if the first column is not #FID) or IID (if the first column is #FID) that holds the individual ID for sample identifier matching with the phenotype file. All previous header lines will be ignored. If no header line beginning with #IID or #FID is present, then the columns are assumed to be in .fam file order.   
     [**.pvar**](https://www.cog-genomics.org/plink/2.0/formats#pvar) - The .pvar file is a tab-delimited text file containing the variant information. If header lines are present, the last header line should start with #CHROM. If #CHROM is present, then the columns POS, ID, REF, and ALT must also be present. All previous header lines will be ignored. If the .pvar file contain no header lines beginning with #CHROM, it is assumed that the columns are in .bim file order.  
     [**.pgen**](https://www.cog-genomics.org/plink/2.0/formats#pgen) - The .pvar file should be filtered for non-biallelic variants. The ALT allele specified in the .pvar file is the effect allele counted in association testing.
      

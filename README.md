@@ -24,6 +24,7 @@ https://large-scale-gxe-methods.github.io/GEM-website/index.html
 Library Dependencies:  
 * BLAS/LAPACK. For Intel processors, we recommend that GEM is compiled with an optimized math routine library such as the Math Kernal Library for top performance.  
 * Boost C++ libraries. GEM links the following Boost libraries:  ```boost_program_options, boost_thread, boost_system, and boost_filesystem```.  
+
 These dependencies will need to be installed prior to executing make.  
 
 <br />
@@ -204,11 +205,11 @@ Performance Options:
 
 #### Input Files
 
-* ##### Phenotype File
-    A file which should contain a sample identifier column and columns for the phenotypes, exposures, and covariates. The ordering of the column does not matter.
+##### Phenotype File
+    A file which should contain a sample identifier column and columns for the phenotypes, exposures, and covariates. The ordering of the columns does not matter.
     All binary phenotypes, exposures, and covariates should be coded numerically (e.g., males/females as 0/1)
 
-* ##### Genotype Files
+##### Genotype Files
     1. [BGEN genotype file](https://www.well.ox.ac.uk/~gav/bgen_format/spec/latest.html).  
     Variants that are non-biallelic should be filtered from the BGEN file. Note that since there are no indication of a REF/ALT allele in the BGEN file, the second allele is the effect allele counted in association testing.   
     A [.sample file](https://www.well.ox.ac.uk/~gav/qctool_v2/documentation/sample_file_formats.html) is required as input when the .bgen file does not contain a sample identifier block.
